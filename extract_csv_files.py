@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 import pickle
 import csv
-from random import shuffle
 
 
 def csv2dicts(csvfile):
@@ -28,7 +26,6 @@ def set_nan_as_string(data, replace_str='0'):
 
 train_data = "train.csv"
 store_data = "store.csv"
-test_data = "test.csv"
 store_states = 'store_states.csv'
 
 with open(train_data) as csvfile:
@@ -39,12 +36,6 @@ with open(train_data) as csvfile:
         pickle.dump(data, f, -1)
         print(data[:3])
 
-with open(test_data) as csvfile:
-    data = csv.reader(csvfile, delimiter=',')
-    with open('test_data.pickle', 'wb') as f:
-        data = csv2dicts(data)
-        pickle.dump(data, f, -1)
-        print(data[0])
 
 with open(store_data) as csvfile, open(store_states) as csvfile2:
     data = csv.reader(csvfile, delimiter=',')
